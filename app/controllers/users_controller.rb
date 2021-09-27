@@ -22,19 +22,20 @@ class UsersController < ApplicationController
 
   def auth_password
     @user = User.find(params[:id])
-    # if auth_password == Rails.application.secrets.secret_key
-    #     self.destroy
-    # end
+    if @auth_password == Rails.application.secrets.secret_key 
+        return true
+    end
   end
 
   def destroy
     @user = User.find(params[:id])
-    @User.destroy
-
+    if auth_password
+        @user.destroy
+    else
+        render :new
+    end
     redirect_to users_path
   end
-
-  helper_method :check_password
 
   private
 
