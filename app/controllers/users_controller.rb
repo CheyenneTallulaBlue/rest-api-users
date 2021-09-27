@@ -19,20 +19,22 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
   end
-
+ 
   def auth_password
     @user = User.find(params[:id])
-    if @auth_password == Rails.application.secrets.secret_key 
-        return true
-    end
+  end
+
+  def is_secret_key
+    return true
+    # if @auth_password == Rails.application.credentials.dig(:secret_key)
+    #     return true
+    # end  
   end
 
   def destroy
     @user = User.find(params[:id])
-    if auth_password
+    if is_secret_key
         @user.destroy
-    else
-        render :new
     end
     redirect_to users_path
   end
@@ -42,4 +44,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:email, :username, :password_digest)
   end
+
 end
