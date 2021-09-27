@@ -1,0 +1,13 @@
+<h3>Here are the details for <%= @user.username %>:</h3>
+<div>
+  <h2>Email</h2>
+  <p><%= @user.email %></p>
+
+  <h2>Status</h2>
+  <p><%= @user.active ? "Active" : "Inactive" %></p>
+
+
+  <%= link_to "<< Back to All Users", users_path %>
+
+ <%= link_to "Delete", users_auth_password_path %>
+</div>
