@@ -1,13 +1,15 @@
-<h3>Here are the details for <%= @user.username %>:</h3>
-<div>
-  <h2>Email</h2>
-  <p><%= @user.email %></p>
+<div class="container">
+    <h2>Here are the details for <%= @user.username %>:</h3>
+        <div>
+            <h3>Email: </h2><p><%= @user.email %></p>
+            <h3>Status: </h2><p><%= @user.active ? "Active" : "Inactive" %></p>
+        </div>
+</div>
 
-  <h2>Status</h2>
-  <p><%= @user.active ? "Active" : "Inactive" %></p>
+<div class="buttons">
+    <%= link_to "Back to All Users", users_path, class: "btn-flat" %>
+</div>
 
-
-  <%= link_to "<< Back to All Users", users_path %>
-
- <%= link_to "Delete", users_auth_password_path %>
+<div class="buttons">
+    <%= link_to "Delete", users_auth_password_path, class: "btn-flat" %>
 </div>

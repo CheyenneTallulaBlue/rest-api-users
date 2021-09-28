@@ -1,11 +1,15 @@
-<%= simple_form_for(@user) do |f| %>
+<div class="container">
+    <div class="from">
+        <h2>Please enter your details here...</h2>
+            <%= simple_form_for(@user) do |f| %>
+                <div>
+                    <%= f.input :email %>
+                    <%= f.input :username %>
+                    <%= f.input :password_digest, label: 'Password' %>
+                    <%# <%= f.input :photo, as: :file %> 
+                </div>
+                <%= f.submit "Submit From", class: "btn-flat" %>
+            <% end %>
     <div>
-        <%= f.input :email %>
-        <%= f.input :username %>
-        <%= f.input :password %>
-        <%= f.input :photo, as: :file %>
-    </div>
 
-    <%= f.submit %>
-
-<% end %>
+<div>

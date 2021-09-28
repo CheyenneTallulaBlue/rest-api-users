@@ -1,7 +1,10 @@
-  <h2>All users...</h2>
-  
-  <% @users.each do |user| %>
-        <h5><%=link_to user.username, user_path(user) %></h5>
-  <% end %>
+<div class="container">
+    <h2>All users...</h2>
+        <% @users.each do |user| %>
+                <p>&#10058 <%=link_to user.username, user_path(user) %></p>
+        <% end %>
+</div>
 
-  <%= link_to "Create a new user", new_user_path %>
+<div class="buttons">
+    <%= link_to "Create a new user", new_user_path, class: "btn-flat" %>
+<div>
